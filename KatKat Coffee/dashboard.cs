@@ -102,5 +102,10 @@ namespace KatKat_Coffee
             uC_PetInfor1.Visible = true;
             uC_PetInfor1.BringToFront();
         }
+
+        private void uC_PetInfor1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

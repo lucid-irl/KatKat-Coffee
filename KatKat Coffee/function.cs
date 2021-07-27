@@ -23,7 +23,11 @@ namespace KatKat_Coffee
             string path = projectDirectory + @"\Database\katkat.mdf";
             // C:\Users\TVThanh\Downloads\Compressed\KatKat Coffee\KatKat Coffee
             // C:\Users\TVThanh\Downloads\Compressed\KatKat Coffee\KatKat Coffee\KatKat Coffee
-            con.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True";
+
+            //con.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True";
+            string PathY = "C:\\Users\\Yuuto\\source\\repos\\KatKat-Coffee\\KatKat Coffee\\Database\\katkat.mdf";
+            string YuutoConString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = "+PathY+"; Integrated Security = True; Connect Timeout = 30";
+            con.ConnectionString = YuutoConString;
             return con;
         }
         public DataSet getData(String query)
