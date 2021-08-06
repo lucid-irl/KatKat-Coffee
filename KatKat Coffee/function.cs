@@ -20,7 +20,7 @@ namespace KatKat_Coffee
             string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
             projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
             // Console.WriteLine(projectDirectory);
-            string path = projectDirectory + @"\Database\katkat.mdf";
+            string path = projectDirectory + @"\Database\new_database.mdf";
             // C:\Users\TVThanh\Downloads\Compressed\KatKat Coffee\KatKat Coffee
             // C:\Users\TVThanh\Downloads\Compressed\KatKat Coffee\KatKat Coffee\KatKat Coffee
             con.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + path + ";Integrated Security=True";

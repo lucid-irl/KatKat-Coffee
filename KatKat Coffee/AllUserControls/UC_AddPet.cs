@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using KatKat_Coffee.DataAccess;
+using KatKat_Coffee.DataObject;
 namespace KatKat_Coffee.AllUserControls
 {
     public partial class UC_AddPet : UserControl
     {
-        function fn = new function();
-        String query;
+        DataAccessLayer data = new DataAccessLayer();
 
         public UC_AddPet()
         {
@@ -22,9 +22,24 @@ namespace KatKat_Coffee.AllUserControls
 
         private void btnAddPet_Click(object sender, EventArgs e)
         {
-            query = "insert into pets (name, color, species, gender, owner) values ('" + txtPetName.Text + "','" + txtColor.Text + "','" + txtSpecies.Text + "', '"+txtGender.Text+"', '"+txtOwner.Text+"')";
-            fn.setData(query);
-            clearAll();
+            //query = "insert into pets (name, color, species, gender, owner) values ('" + txtPetName.Text + "','" + txtColor.Text + "','" + txtSpecies.Text + "', '"+txtGender.Text+"', '"+txtOwner.Text+"')";
+            //fn.setData(query);
+            if (txtPetName.Text == "" ||
+                txtColor.Text == ""||
+                txtSpecies.Text ==""||
+                txtGender.Text ==""||
+                txtOwner.Text == "")
+            {
+                MessageBox.Show("There are one or more empty cells!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                Pet it = new Pet(0, txtPetName.Text, txtColor.Text, txtSpecies.Text, txtGender.Text, txtOwner.Text);
+                if (data.addPet(it))
+                    MessageBox.Show("Add new pet successfully!");
+                clearAll();
+            }
+            
         }
 
         public void clearAll()

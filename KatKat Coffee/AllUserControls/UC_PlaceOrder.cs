@@ -9,12 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DGVPrinterHelper;
 
+using KatKat_Coffee.DataObject;
+using KatKat_Coffee.DataAccess;
+
 namespace KatKat_Coffee.AllUserControls
 {
     public partial class UC_PlaceOrder : UserControl
     {
-        function fn = new function();
-        String query;
+        //function fn = new function();
+        //String query;
+        DataAccessLayer data = new DataAccessLayer();
 
         public UC_PlaceOrder()
         {
@@ -24,27 +28,36 @@ namespace KatKat_Coffee.AllUserControls
         private void comboCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             String category = comboCategory.Text;
-            query = "select name from items where category = '"+category+"'";
-            showItemList(query);
+            //query = "select name from items where category = '"+category+"'";
+            List<Item> itemsList = data.getAllItemsFromCategory(category);
+            showItemList(itemsList);
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             String category = comboCategory.Text;
-            query = "select name from items where category = '" + category + "' and name like '"+txtSearch.Text+"%'";
-            showItemList(query);
+            // query = "select name from items where category = '" + category + "' and name like '"+txtSearch.Text+"%'";
+            List<Item> itemList = data.searchItemFromCategory(category, txtSearch.Text);
+            showItemList(itemList);
         }
-
-        private void showItemList(String query)
+        private void showItemList(List<Item> itemsList)
         {
             listBox1.Items.Clear();
-            DataSet ds = fn.getData(query);
-
-            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+            foreach (Item it in itemsList)
             {
-                listBox1.Items.Add(ds.Tables[0].Rows[i][0].ToString());
+                listBox1.Items.Add(it.name);
             }
         }
+        //private void showItemList(String query)
+        //{
+        //    listBox1.Items.Clear();
+        //    DataSet ds = fn.getData(query);
+
+        //    for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+        //    {
+        //        listBox1.Items.Add(ds.Tables[0].Rows[i][0].ToString());
+        //    }
+        //}
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -53,11 +66,12 @@ namespace KatKat_Coffee.AllUserControls
 
             String text = listBox1.GetItemText(listBox1.SelectedItem);
             txtItemName.Text = text;
-            query = "select price from items where name = '"+text+"'";
-            DataSet ds = fn.getData(query);
+            List<Item> itemsList = data.searchItems(text);
+            // query = "select price from items where name = '"+text+"'";
+            // DataSet ds = fn.getData(query);
             try
             {
-                txtPrice.Text = ds.Tables[0].Rows[0][0].ToString();
+                txtPrice.Text = itemsList[0].price.ToString();
             }
             catch
             {
@@ -125,6 +139,25 @@ namespace KatKat_Coffee.AllUserControls
             label8TotalAmount.Text = total + " VND";
         }
 
+        private void UC_PlaceOrder_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCheckOut_Click(object sender, EventArgs e)
+        {
+            DateTime myDateTime = DateTime.Now;
+            string sqlFormattedDate = myDateTime.ToString("yyyy-MM-dd");
+            Console.WriteLine(sqlFormattedDate+ " " + txtPrice.Text + " " + txtTotal.Text);
+            Bill it = new Bill(0, int.Parse(label8TotalAmount.Text.Substring(0, label8TotalAmount.Text.Length - 3)), sqlFormattedDate);
+            if (data.addBill(it))
+                MessageBox.Show("You have to pay: " + total, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            txtItemName.Clear();
+            txtPrice.Clear();
+            txtQuantityUpDown.ResetText();
+            txtTotal.Clear();
+        }
+
         private void btnPrint_Click(object sender, EventArgs e)
         {
             DGVPrinter printer = new DGVPrinter();
@@ -138,7 +171,6 @@ namespace KatKat_Coffee.AllUserControls
             printer.Footer = "Total Payable Amount: " + label8TotalAmount.Text;
             printer.FooterSpacing = 15;
             printer.PrintDataGridView(guna2DataGridView2);
-
             total = 0;
             guna2DataGridView2.Rows.Clear();
             label8TotalAmount.Text = total + " VND";

@@ -8,12 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using KatKat_Coffee.DataAccess;
+using KatKat_Coffee.DataObject;
+
 namespace KatKat_Coffee.AllUserControls
 {
     public partial class UC_UpdateItem : UserControl
     {
         function fn = new function();
         String query;
+        DataAccessLayer data = new DataAccessLayer();
 
         public UC_UpdateItem()
         {
@@ -27,16 +31,21 @@ namespace KatKat_Coffee.AllUserControls
 
         public void loadData()
         {
-            query = "select * from items";
-            DataSet ds = fn.getData(query);
-            guna2DataGridView1.DataSource = ds.Tables[0];
+            //query = "select * from items";
+            //DataSet ds = fn.getData(query);
+
+
+            List<Item> itemList = data.getAllItems();
+            // Console.WriteLine("here: " + itemList[0].category);
+            guna2DataGridView1.DataSource = itemList;
         }
 
         private void txtSearchItem_TextChanged(object sender, EventArgs e)
         {
-            query = "select * from items where name like '"+txtSearchItem.Text+"%'";
-            DataSet ds = fn.getData(query);
-            guna2DataGridView1.DataSource = ds.Tables[0];
+            //query = "select * from items where name like '"+txtSearchItem.Text+"%'";
+            //DataSet ds = fn.getData(query);
+            List<Item> itemList = data.searchItems(txtSearchItem.Text);
+            guna2DataGridView1.DataSource = itemList;
         }
 
         int id;
@@ -58,13 +67,51 @@ namespace KatKat_Coffee.AllUserControls
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            query = "update items set name ='"+txtItemName.Text+"', category = '"+txtCategory.Text+"', price = '"+txtPrice.Text+"' where Id = '"+id+"'";
-            fn.setData(query);
-            loadData();
+            //query = "update items set name ='"+txtItemName.Text+"', category = '"+txtCategory.Text+"', price = '"+txtPrice.Text+"' where Id = '"+id+"'";
+            //fn.setData(query);
+            string name = this.txtItemName.Text;
+            string category = txtCategory.Text.ToString();
+            Int64 price;
+            if (name == "" || category == "")
+            {
+                MessageBox.Show("There are one or more empty cells!", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                try
+                {
+                    price = Int64.Parse(txtPrice.Text);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Price should be a number with value greater than 0");
+                    return;
+                }
+                if (price < 0)
+                {
+                    MessageBox.Show("Price should be a number with value greater than 0");
+                    return;
+                }
+                else
+                {
+                    Item it = new Item(id, name, category, price);
 
-            txtCategory.ResetText();
-            txtItemName.Clear();
-            txtPrice.Clear();
+                    Console.WriteLine(txtCategory.Text + it.category + "end");
+                    data.updateItem(it);
+                    loadData();
+
+                    txtCategory.ResetText();
+                    txtItemName.Clear();
+                    txtPrice.Clear();
+                }
+                //    Item it = new Item(id, txtItemName.Text, txtCategory.Text, Int64.Parse(txtPrice.Text));
+                //data.updateItem(it);
+                //loadData();
+
+                //txtCategory.ResetText();
+                //txtItemName.Clear();
+                //txtPrice.Clear();
+            }
         }
     }
 }

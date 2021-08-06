@@ -28,7 +28,8 @@ namespace KatKat_Coffee
                 btnRemove.Hide();
                 btnAddPet.Hide();
                 btnPetInfor.Hide();
-                //btnGifted.Hide();
+                btnUser.Hide();
+                btnBill.Hide();
             }
 
             else if (user == "Admin")
@@ -38,9 +39,16 @@ namespace KatKat_Coffee
                 btnRemove.Show();
                 btnAddPet.Show();
                 btnPetInfor.Show();
-                //btnGifted.Show();
+                btnUser.Show();
+                btnBill.Show();
             }
-            
+            else if(user == "Staff")
+            {
+                btnAddItem.Show();
+                btnAddPet.Show();
+                btnPetInfor.Show();
+                btnBill.Show();
+            }
         }
 
         private void btn_Exit_Click(object sender, EventArgs e)
@@ -69,6 +77,8 @@ namespace KatKat_Coffee
             uC_Remove1.Visible = false;
             uC_AddPet1.Visible = false;
             uC_PetInfor1.Visible = false;
+            uC_Bill1.Visible = false;
+            uC_UserInfor1.Visible = false;
         }
 
         private void btnPlaceOrder_Click(object sender, EventArgs e)
@@ -82,12 +92,14 @@ namespace KatKat_Coffee
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             uC_UpdateItem1.Visible = true;
+            uC_UpdateItem1.loadData();
             uC_UpdateItem1.BringToFront();
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
             uC_Remove1.Visible = true;
+            uC_Remove1.loadData();
             uC_Remove1.BringToFront();
         }
 
@@ -100,7 +112,22 @@ namespace KatKat_Coffee
         private void btnPetInfor_Click(object sender, EventArgs e)
         {
             uC_PetInfor1.Visible = true;
+            uC_PetInfor1.loadData();
             uC_PetInfor1.BringToFront();
+        }
+
+        private void btnUser_Click(object sender, EventArgs e)
+        {
+            uC_UserInfor1.Visible = true;
+            uC_UserInfor1.loadData();
+            uC_UserInfor1.BringToFront();
+        }
+
+        private void btnBill_Click(object sender, EventArgs e)
+        {
+            uC_Bill1.Visible = true;
+            //btnBill.loadData();
+            uC_Bill1.BringToFront();
         }
     }
 }

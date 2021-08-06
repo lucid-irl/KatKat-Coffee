@@ -32,6 +32,22 @@ namespace KatKat_Coffee
                 ds.Show();
                 this.Hide();
             }
+            else
+            {
+                dashboard dss = new dashboard("Staff");
+                dss.Show();
+                this.Hide();
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Exit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

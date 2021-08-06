@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -80,6 +80,12 @@
     <Compile Include="AllUserControls\UC_AddPet.Designer.cs">
       <DependentUpon>UC_AddPet.cs</DependentUpon>
     </Compile>
+    <Compile Include="AllUserControls\UC_Bill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AllUserControls\UC_Bill.Designer.cs">
+      <DependentUpon>UC_Bill.cs</DependentUpon>
+    </Compile>
     <Compile Include="AllUserControls\UC_PetInfor.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -104,6 +110,12 @@
     <Compile Include="AllUserControls\UC_UpdateItem.Designer.cs">
       <DependentUpon>UC_UpdateItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="AllUserControls\UC_UserInfor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AllUserControls\UC_UserInfor.Designer.cs">
+      <DependentUpon>UC_UserInfor.cs</DependentUpon>
+    </Compile>
     <Compile Include="AllUserControls\UC_Welcome.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -116,6 +128,11 @@
     <Compile Include="dashboard.Designer.cs">
       <DependentUpon>dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataAccess\DataAccessLayer.cs" />
+    <Compile Include="DataObject\Bill.cs" />
+    <Compile Include="DataObject\Item.cs" />
+    <Compile Include="DataObject\Pet.cs" />
+    <Compile Include="DataObject\User.cs" />
     <Compile Include="DGVPrinter.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -132,6 +149,9 @@
     <EmbeddedResource Include="AllUserControls\UC_AddPet.resx">
       <DependentUpon>UC_AddPet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AllUserControls\UC_Bill.resx">
+      <DependentUpon>UC_Bill.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AllUserControls\UC_PetInfor.resx">
       <DependentUpon>UC_PetInfor.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AllUserControls\UC_UpdateItem.resx">
       <DependentUpon>UC_UpdateItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AllUserControls\UC_UserInfor.resx">
+      <DependentUpon>UC_UserInfor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AllUserControls\UC_Welcome.resx">
       <DependentUpon>UC_Welcome.cs</DependentUpon>
@@ -198,6 +221,13 @@
     <Content Include="Database\katkat_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>katkat.mdf</DependentUpon>
+    </Content>
+    <Content Include="Database\new_database.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Database\new_database_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>new_database.mdf</DependentUpon>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
