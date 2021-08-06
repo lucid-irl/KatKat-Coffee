@@ -116,7 +116,6 @@ namespace KatKat_Coffee
             uC_PetInfor1.BringToFront();
         }
 
-<<<<<<< HEAD
         private void btnUser_Click(object sender, EventArgs e)
         {
             uC_UserInfor1.Visible = true;
@@ -129,11 +128,6 @@ namespace KatKat_Coffee
             uC_Bill1.Visible = true;
             //btnBill.loadData();
             uC_Bill1.BringToFront();
-=======
-        private void uC_PetInfor1_Load(object sender, EventArgs e)
-        {
-
->>>>>>> 90496fa0563ae290561fdbc584741b6160674b1e
         }
     }
 }

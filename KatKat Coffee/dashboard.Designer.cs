@@ -100,7 +100,6 @@
             this.btn_Exit.CheckedState.Parent = this.btn_Exit;
             this.btn_Exit.CustomImages.Parent = this.btn_Exit;
             this.guna2Transition1.SetDecoration(this.btn_Exit, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.btn_Exit.DisabledState.Parent = this.btn_Exit;
             this.btn_Exit.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Exit.ForeColor = System.Drawing.Color.White;
             this.btn_Exit.HoverState.Parent = this.btn_Exit;
@@ -165,7 +164,6 @@
             this.btnPetInfor.CheckedState.Parent = this.btnPetInfor;
             this.btnPetInfor.CustomImages.Parent = this.btnPetInfor;
             this.guna2Transition1.SetDecoration(this.btnPetInfor, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.btnPetInfor.DisabledState.Parent = this.btnPetInfor;
             this.btnPetInfor.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(180)))), ((int)(((byte)(219)))));
             this.btnPetInfor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)), true);
             this.btnPetInfor.ForeColor = System.Drawing.Color.Black;
@@ -188,7 +186,6 @@
             this.btnAddPet.CheckedState.Parent = this.btnAddPet;
             this.btnAddPet.CustomImages.Parent = this.btnAddPet;
             this.guna2Transition1.SetDecoration(this.btnAddPet, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.btnAddPet.DisabledState.Parent = this.btnAddPet;
             this.btnAddPet.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(180)))), ((int)(((byte)(219)))));
             this.btnAddPet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)), true);
             this.btnAddPet.ForeColor = System.Drawing.Color.Black;
@@ -211,7 +208,6 @@
             this.btnRemove.CheckedState.Parent = this.btnRemove;
             this.btnRemove.CustomImages.Parent = this.btnRemove;
             this.guna2Transition1.SetDecoration(this.btnRemove, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.btnRemove.DisabledState.Parent = this.btnRemove;
             this.btnRemove.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(180)))), ((int)(((byte)(219)))));
             this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)), true);
             this.btnRemove.ForeColor = System.Drawing.Color.Black;
@@ -234,7 +230,6 @@
             this.btnUpdate.CheckedState.Parent = this.btnUpdate;
             this.btnUpdate.CustomImages.Parent = this.btnUpdate;
             this.guna2Transition1.SetDecoration(this.btnUpdate, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.btnUpdate.DisabledState.Parent = this.btnUpdate;
             this.btnUpdate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(180)))), ((int)(((byte)(219)))));
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)), true);
             this.btnUpdate.ForeColor = System.Drawing.Color.Black;
@@ -257,7 +252,6 @@
             this.btnAddItem.CheckedState.Parent = this.btnAddItem;
             this.btnAddItem.CustomImages.Parent = this.btnAddItem;
             this.guna2Transition1.SetDecoration(this.btnAddItem, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.btnAddItem.DisabledState.Parent = this.btnAddItem;
             this.btnAddItem.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(180)))), ((int)(((byte)(219)))));
             this.btnAddItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)), true);
             this.btnAddItem.ForeColor = System.Drawing.Color.Black;
@@ -280,7 +274,6 @@
             this.btnPlaceOrder.CheckedState.Parent = this.btnPlaceOrder;
             this.btnPlaceOrder.CustomImages.Parent = this.btnPlaceOrder;
             this.guna2Transition1.SetDecoration(this.btnPlaceOrder, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.btnPlaceOrder.DisabledState.Parent = this.btnPlaceOrder;
             this.btnPlaceOrder.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(180)))), ((int)(((byte)(219)))));
             this.btnPlaceOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)), true);
             this.btnPlaceOrder.ForeColor = System.Drawing.Color.Black;
@@ -372,7 +365,6 @@
             this.uC_PetInfor1.Name = "uC_PetInfor1";
             this.uC_PetInfor1.Size = new System.Drawing.Size(781, 587);
             this.uC_PetInfor1.TabIndex = 7;
-            this.uC_PetInfor1.Load += new System.EventHandler(this.uC_PetInfor1_Load);
             // 
             // uC_AddPet1
             // 

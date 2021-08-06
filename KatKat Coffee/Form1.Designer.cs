@@ -112,17 +112,12 @@
             this.btn_Login.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(210)))), ((int)(((byte)(255)))));
             this.btn_Login.CheckedState.Parent = this.btn_Login;
             this.btn_Login.CustomImages.Parent = this.btn_Login;
-            this.btn_Login.DisabledState.Parent = this.btn_Login;
             this.btn_Login.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(210)))), ((int)(((byte)(255)))));
             this.btn_Login.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btn_Login.ForeColor = System.Drawing.Color.Black;
             this.btn_Login.HoverState.Parent = this.btn_Login;
             this.btn_Login.Location = new System.Drawing.Point(111, 448);
-<<<<<<< HEAD
             this.btn_Login.Margin = new System.Windows.Forms.Padding(4);
-=======
-            this.btn_Login.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
->>>>>>> 90496fa0563ae290561fdbc584741b6160674b1e
             this.btn_Login.Name = "btn_Login";
             this.btn_Login.ShadowDecoration.Parent = this.btn_Login;
             this.btn_Login.Size = new System.Drawing.Size(269, 55);
@@ -135,11 +130,7 @@
             this.btn_Guest.AutoSize = true;
             this.btn_Guest.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btn_Guest.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-<<<<<<< HEAD
             this.btn_Guest.Location = new System.Drawing.Point(132, 516);
-=======
-            this.btn_Guest.Location = new System.Drawing.Point(157, 517);
->>>>>>> 90496fa0563ae290561fdbc584741b6160674b1e
             this.btn_Guest.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.btn_Guest.Name = "btn_Guest";
             this.btn_Guest.Size = new System.Drawing.Size(165, 20);
@@ -182,11 +173,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(68, 46);
-<<<<<<< HEAD
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-=======
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
->>>>>>> 90496fa0563ae290561fdbc584741b6160674b1e
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(361, 208);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -213,10 +200,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(209)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(497, 554);
-<<<<<<< HEAD
             this.Controls.Add(this.Exit);
-=======
->>>>>>> 90496fa0563ae290561fdbc584741b6160674b1e
             this.Controls.Add(this.btn_Guest);
             this.Controls.Add(this.btn_Login);
             this.Controls.Add(this.label3);
@@ -225,13 +209,8 @@
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.shapeContainer1);
-<<<<<<< HEAD
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
-=======
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
->>>>>>> 90496fa0563ae290561fdbc584741b6160674b1e
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
