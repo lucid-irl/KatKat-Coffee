@@ -45,9 +45,13 @@ namespace KatKat_Coffee
             else if(user == "Staff")
             {
                 btnAddItem.Show();
+                btnUpdate.Show();
+                btnRemove.Show();
                 btnAddPet.Show();
                 btnPetInfor.Show();
-                btnBill.Show();
+                btnUser.Hide();
+                btnBill.Hide();
+
             }
         }
 

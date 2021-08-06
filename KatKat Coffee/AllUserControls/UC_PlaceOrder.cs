@@ -79,11 +79,38 @@ namespace KatKat_Coffee.AllUserControls
             }
         }
 
+        void ResQuantity()
+        {
+            this.txtQuantityUpDown.ValueChanged -= new EventHandler(txtQuantityUpDown_ValueChanged);
+
+            this.txtQuantityUpDown.Value = 0;
+
+            this.txtQuantityUpDown.ValueChanged += new EventHandler(txtQuantityUpDown_ValueChanged);
+        }
+
         private void txtQuantityUpDown_ValueChanged(object sender, EventArgs e)
         {
-            Int64 quan = Int64.Parse(txtQuantityUpDown.Value.ToString());
-            Int64 price = Int64.Parse(txtPrice.Text);
-            txtTotal.Text = (quan * price).ToString();
+
+            try
+            {
+                if(txtItemName.Text =="" || txtPrice.Text =="")
+                {
+                    MessageBox.Show("Item is empty");
+                    ResQuantity();
+                }
+                else
+                {
+                    Int64 quan = Int64.Parse(txtQuantityUpDown.Value.ToString());
+                    Int64 price = Int64.Parse(txtPrice.Text);
+                    txtTotal.Text = (quan * price).ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Item is empty");
+                txtQuantityUpDown.Value = 0;
+            }
+
         }
 
         protected int n, total = 0;
@@ -99,25 +126,29 @@ namespace KatKat_Coffee.AllUserControls
                 guna2DataGridView2.Rows[n].Cells[3].Value = txtTotal.Text;
 
                 total += int.Parse(txtTotal.Text);
+                txtItemName.Clear();
+                txtPrice.Clear(); 
                 label8TotalAmount.Text = total + " VND";
             }
             else
             {
                 MessageBox.Show("Minimum Quantity need to be 1", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            txtItemName.Clear();
-            txtPrice.Clear();
-            txtQuantityUpDown.ResetText();
+
+            ResQuantity();
             txtTotal.Clear();
         }
 
         int amount;
+        int index;
 
         private void guna2DataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
-                amount = int.Parse(guna2DataGridView2.Rows[e.RowIndex].Cells[3].Value.ToString());
+                //amount = int.Parse(guna2DataGridView2.Rows[e.RowIndex].Cells[3].Value.ToString());
+                index = e.RowIndex;
+                //MessageBox.Show(amount.ToString());
             }
             catch
             {
@@ -127,16 +158,49 @@ namespace KatKat_Coffee.AllUserControls
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            try
+            if (guna2DataGridView2.RowCount == 0)
             {
-                guna2DataGridView2.Rows.RemoveAt(this.guna2DataGridView2.SelectedRows[0].Index);
+                total = 0;
+                label8TotalAmount.Text = total + " VND";
             }
-            catch
+            else
             {
+                try
+                {
+                    amount = int.Parse(guna2DataGridView2.Rows[index].Cells[3].Value.ToString());
+                    total -= amount;
+                    guna2DataGridView2.Rows.RemoveAt(index);
+                    guna2DataGridView2.CurrentCell = null;
+                    //guna2DataGridView2.Rows.RemoveAt(this.guna2DataGridView2.SelectedRows[0].Index);
+                    label8TotalAmount.Text = total + " VND";
+                    amount = 0;
+                }
+                catch
+                {
+
+                }
 
             }
-            total -= amount;
-            label8TotalAmount.Text = total + " VND";
+
+            //if (guna2DataGridView2.Rows.Count == 0)
+            //{
+            //    total = 0;
+            //    label8TotalAmount.Text = total + " VND";
+            //}
+            //else
+            //{
+            //    try
+            //    {
+            //        guna2DataGridView2.Rows.RemoveAt(this.guna2DataGridView2.SelectedRows[0].Index);
+            //    }
+            //    catch
+            //    {
+
+            //    }
+            //    label8TotalAmount.Text = total + " VND";
+            //    amount = 0;
+            //    total -= amount;
+            //}
         }
 
         private void UC_PlaceOrder_Load(object sender, EventArgs e)
@@ -156,6 +220,11 @@ namespace KatKat_Coffee.AllUserControls
             txtPrice.Clear();
             txtQuantityUpDown.ResetText();
             txtTotal.Clear();
+        }
+
+        private void guna2DataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         private void btnPrint_Click(object sender, EventArgs e)

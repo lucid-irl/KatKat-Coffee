@@ -121,4 +121,7 @@
   <data name="tumblr_ompuekEet91vyf4svo1_500" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Icon\tumblr_ompuekEet91vyf4svo1_500.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="_777494_200" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icon\777494-200.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

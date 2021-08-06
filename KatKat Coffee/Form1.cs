@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KatKat_Coffee.DataAccess;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace KatKat_Coffee
 {
     public partial class Form1 : Form
     {
+        DataAccessLayer data = new DataAccessLayer();
         public Form1()
         {
             InitializeComponent();
@@ -26,6 +28,7 @@ namespace KatKat_Coffee
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
+            
             if (txtUsername.Text == "admin" && txtPassword.Text == "admin")
             {
                 dashboard ds = new dashboard("Admin");
@@ -34,9 +37,23 @@ namespace KatKat_Coffee
             }
             else
             {
-                dashboard dss = new dashboard("Staff");
-                dss.Show();
-                this.Hide();
+                string role = data.Login(txtUsername.Text, txtPassword.Text);
+                if(role == "Admin")
+                {
+                    dashboard ds = new dashboard("Admin");
+                    ds.Show();
+                    this.Hide();
+                }
+                else if(role == "Staff") {
+                    dashboard dss = new dashboard("Staff");
+                    dss.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Wrong username or password!");
+                }
+                
             }
         }
 

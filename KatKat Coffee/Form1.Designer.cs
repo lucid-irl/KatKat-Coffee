@@ -76,7 +76,7 @@
             this.txtUsername.SelectionStart = 5;
             this.txtUsername.ShadowDecoration.Parent = this.txtUsername;
             this.txtUsername.Size = new System.Drawing.Size(269, 43);
-            this.txtUsername.TabIndex = 2;
+            this.txtUsername.TabIndex = 1;
             // 
             // txtPassword
             // 
@@ -112,6 +112,7 @@
             this.btn_Login.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(210)))), ((int)(((byte)(255)))));
             this.btn_Login.CheckedState.Parent = this.btn_Login;
             this.btn_Login.CustomImages.Parent = this.btn_Login;
+            this.btn_Login.DisabledState.Parent = this.btn_Login;
             this.btn_Login.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(210)))), ((int)(((byte)(255)))));
             this.btn_Login.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btn_Login.ForeColor = System.Drawing.Color.Black;
@@ -196,6 +197,7 @@
             // 
             // Form1
             // 
+            this.AcceptButton = this.btn_Login;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(209)))), ((int)(((byte)(242)))));

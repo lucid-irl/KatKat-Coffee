@@ -153,6 +153,39 @@ namespace KatKat_Coffee.DataAccess
             return result;
         }
 
+        public string Login(string name, string pass)
+        {
+            string role = "";
+            SqlDataReader reader = null;
+            try
+            {
+                con.ConnectionString = conStr;
+                con.Open();
+                SqlCommand command = new SqlCommand();
+                command.Connection = con;
+                command.CommandText = "SELECT role FROM account WHERE username = '"+name+"' and password = '"+pass+"'";
+                reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        role = reader["role"].ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                if (reader != null)
+                    reader.Close();
+                con.Dispose();
+            }
+            return role;
+        }
+
         public List<User> getAllUserInfor()
         {
             List<User> result = new List<User>();
@@ -186,6 +219,8 @@ namespace KatKat_Coffee.DataAccess
             }
             return result;
         }
+
+
 
         public List<Bill> getAllBill()
         {

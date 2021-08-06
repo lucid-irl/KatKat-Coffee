@@ -78,12 +78,12 @@ namespace KatKat_Coffee.AllUserControls
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Age should be a number with value greater than 0");
+                    MessageBox.Show("Age should be a number with value greater than 0 and lower than 122 ");
                     return;
                 }
-                if (age < 0)
+                if (age < 0 || age > 122)
                 {
-                    MessageBox.Show("Age should be a number with value greater than 0");
+                    MessageBox.Show("Age should be a number with value greater than 0 and lower than 122");
                     return;
                 }
                 else
@@ -138,6 +138,30 @@ namespace KatKat_Coffee.AllUserControls
             data.deleteUser(id);
             loadData();
             clearAll();
+        }
+
+        private void guna2DataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (guna2DataGridView1.Columns[e.ColumnIndex].Index == 2)
+            {
+                if(e.Value != null)
+                {
+                    e.Value = new string('*', e.Value.ToString().Length);
+                    e.FormattingApplied = true;
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (txtPass.UseSystemPasswordChar)
+            {
+                txtPass.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txtPass.UseSystemPasswordChar = true;
+            }
         }
     }
 }
