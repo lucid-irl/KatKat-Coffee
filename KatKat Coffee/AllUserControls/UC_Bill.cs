@@ -38,5 +38,10 @@ namespace KatKat_Coffee.AllUserControls
         {
             loadData();
         }
+
+        private void btnReLoad_Click(object sender, EventArgs e)
+        {
+            loadData();
+        }
     }
 }
